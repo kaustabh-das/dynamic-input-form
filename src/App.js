@@ -28,11 +28,11 @@ function App() {
 
   const classes = useStyles();
 
-  const userTemplate = {name: "", email: "", phone: "", address: ""};
+  const userTemplate = {id:Math.random(), name: "", email: "", phone: "", address: ""};
   const [users, setUsers] = useState([userTemplate]);
 
   const addUser = () => {
-    setUsers([...users, userTemplate]);
+    setUsers([...users, {id:Math.random(), name: "", email: "", phone: "", address: ""}]);
   }
 
   const onChange = (e, index) => {
@@ -54,7 +54,7 @@ function App() {
       <Paper component={Box} p={4}>
         {
           users.map((user, index)=> (
-            <Grid container spacing={3} key={index} className={classes.inputGroup}> 
+            <Grid container spacing={3} key={user.id} className={classes.inputGroup}> 
               <Grid item md={3}> 
                 <TextField
                 label="Name"
